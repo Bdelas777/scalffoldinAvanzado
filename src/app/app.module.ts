@@ -6,10 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    CoreModule,
+    HttpClientModule,
+    SharedModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
