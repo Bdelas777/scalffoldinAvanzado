@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PokeapiService } from './core/services/pokeapi.service';
 
 @Component({
   selector: 'app-root',
@@ -7,18 +8,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  constructor(private readonly httpClient: HttpClient) {}
+  constructor(private readonly pokeapiService: PokeapiService) {}
   ngOnInit(): void {
-    this.httpClient
-      .get<any[]>('https://pokeapi.co/api/v2/pokemon/ditto')
-      .subscribe({
-        next: (res) => {
-          console.log(res);
-          console.log(`Se obtuvo ${res.length} resultados`);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
+    this.pokeapiService.getPokemonList().subscribe({
+      next: (res) => {
+        console.log(`Se obtuvo ${res.results.length} resultados`);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }
