@@ -5,17 +5,10 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { PokemonDumbModule } from '../pokemon-dumb/pokemon-dumb.module';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    AboutComponent,
-    ContactComponent
-  ],
-  imports: [
-    CommonModule,
-    PagesRoutingModule
-  ]
+  declarations: [HomeComponent, AboutComponent, ContactComponent],
+  imports: [CommonModule, PagesRoutingModule, PokemonDumbModule],
 })
-export class PagesModule { }
+export class PagesModule {}
